@@ -4,6 +4,7 @@
 			api: "",
 			data: {},
 			titles: [],
+			callback: function() {},
 		}, options);
 
 		var getData = function(elem) {
@@ -44,6 +45,7 @@
 				table.append(tbody);
 
 				elem.html('').html(table);
+				settings.callback();
 			});
 			elem.html('').html($('<span></span>').attr('id', 'msg').text('Processing'));
 		});
