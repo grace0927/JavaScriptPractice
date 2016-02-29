@@ -4,6 +4,7 @@
 			api: "",
 			data: {},
 			titles: [],
+			fields: [],
 			table_id: '',
 			table_class: 'table table-bordered',
 			callback: function(data) {},
@@ -42,9 +43,9 @@
 				var tbody = $('<tbody></tbody>');
 				$.each(data, function(key, value) {
 					row = $('<tr></tr>');
-					$.each(value, function(key, value) {
-						row.append($('<td></td>').text(value));
-					});
+					for(field of settings.fields) {
+						row.append($('<td></td>').text(value[field]));
+					}
 					tbody.append(row);
 				});
 
