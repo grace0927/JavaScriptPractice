@@ -11,7 +11,7 @@ var Todo = Backbone.Model.extend({
 // backbone collection
 
 var Todos = Backbone.Collection.extend({
-	due: './api/todos.php'
+	url: 'todos.php'
 });
 
 // initial a collection
