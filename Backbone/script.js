@@ -73,7 +73,7 @@ var TodoView = Backbone.View.extend({
 
 // backbone view for all todos
 
-var TodossView = Backbone.View.extend({
+var TodosView = Backbone.View.extend({
 	model: todos,
 	el: $('.todo-list'),
 	initialize: function() {

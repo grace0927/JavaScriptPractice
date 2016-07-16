@@ -1,5 +1,5 @@
-var ToolBox = React.createClass({
-	loadTools: function() {
+var ShowCases = React.createClass({
+	loadCases: function() {
 		$.ajax({
 			url: this.props.url,
 			dataType: 'json',
@@ -15,7 +15,7 @@ var ToolBox = React.createClass({
 		return {data: []};
 	},
 	componentDidMount: function() {
-		this.loadTools();
+		this.loadCases();
 	},
 	render: function() {
 		return (
@@ -23,18 +23,18 @@ var ToolBox = React.createClass({
 				<nav className="navbar navbar-default">
 					<div className="container-fluid">
 						<div className="navbar-header">
-							<a className="navbar-brand">Tools</a>
+							<a className="navbar-brand">ShowCases</a>
 						</div>
-						<ToolSearch />
+						<ShowCaseSearch />
 					</div>
 				</nav>
-				<ToolList data={this.state.data} />
+				<ShowCaseList data={this.state.data} />
 			</div>
 		);
 	}
 });
 
-var ToolSearch = React.createClass({
+var ShowCaseSearch = React.createClass({
 	render: function() {
 		return (
 			<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -48,28 +48,29 @@ var ToolSearch = React.createClass({
 	}
 });
 
-var ToolList = React.createClass({
+var ShowCaseList = React.createClass({
 	render: function() {
-		var tools = this.props.data.map(function(tool) {
+		var showcases = this.props.data.map(function(showcase) {
 			return (
-				<Tool key={tool.id} link={tool.link} name={tool.name} />
+				<ShowCase key={showcase.id} link={showcase.link} name={showcase.name} img={showcase.img} desc={showcase.desc}/>
 			);
 		});
 		return (
-			<div className="toolList">
-				{tools}
+			<div className="show-case-list">
+				{showcases}
 			</div>
 		);
 	}
 });
 
-var Tool = React.createClass({
+var ShowCase = React.createClass({
 	render: function() {
 		return (
-			<div className="col-sm-6 col-md-6">
+			<div className="col-sm-4 col-md-4">
 				<a href={this.props.link} className="thumbnail">
 					<div className="caption">
 						<h3>{this.props.name}</h3>
+						<p>{this.props.desc}</p>
 					</div>
 				</a>
 			</div>
@@ -78,6 +79,6 @@ var Tool = React.createClass({
 });
 
 ReactDOM.render(
-	<ToolBox url="api/tools" />,
+	<ShowCases url="React/showcase.json" />,
 	document.getElementById('content')
 );
