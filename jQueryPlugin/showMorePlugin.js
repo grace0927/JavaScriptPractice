@@ -1,28 +1,28 @@
 ;(function($) {
-    $.fn.showMore = function(elem, options) {
+	$.fn.showMore = function(elem, options) {
 		var setting = $.extend({
 			more: '<span>Show More &#9660;</span>',
 		less: '<span>Show Less &#9650;</span>',
 		}, options);
 
 		this.each(function() {
-        	elem.hide();
+			elem.hide();
 			$(this).attr('data-now', '0');
 			$(this).html('').html(setting.more);
-        	$(this).unbind('click').bind('click', function(e) {
+			$(this).unbind('click').bind('click', function(e) {
 				e.preventDefault();
 				var status = $(this).attr('data-now');
-	            if(status === '1') {
+				if(status === '1') {
 					elem.hide();
 					$(this).attr('data-now', '0');
 					$(this).html('').html(setting.more);
-			    } else {
+				} else {
 					elem.show();
 					$(this).attr('data-now', '1');
 					$(this).html('').html(setting.less);
-			    }
+				}
 			});
-        });
-        return this;
-    };
+		});
+		return this;
+	};
 }(jQuery));
