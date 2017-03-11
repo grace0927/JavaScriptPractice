@@ -1,0 +1,21 @@
+{
+  "name": "jQueryPlugin",
+  "homepage": "https://github.com/grace0927/JavaScriptPractice",
+  "authors": [
+    "grace0927 <cellphone2008@gmail.com>"
+  ],
+  "description": "jQuery plugins",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.1.1"
+  }
+}

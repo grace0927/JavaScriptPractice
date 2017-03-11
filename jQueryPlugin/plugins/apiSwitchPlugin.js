@@ -10,13 +10,13 @@
 
 		this.each(function() {
 			var status = $(this).attr('status');
-			
+
 			if(status === 'on') {
 				$(this).html('').html(setting.on);
 			} else {
 				$(this).html('').html(setting.off);
 			}
-			
+
         	$(this).unbind('click').bind('click', function(e) {
 				e.preventDefault();
 				var status = $(this).attr('status');

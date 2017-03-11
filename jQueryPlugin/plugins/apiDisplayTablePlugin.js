@@ -32,7 +32,7 @@
 				dataType: 'json',
 			}).done(function(data) {
 				var table = $('<table></table>').addClass(settings.table_class).attr('id', settings.table_id);
-				
+
 				var thead = $('<thead></thead>');
 				var row = $('<tr></tr>');
 				$.each(settings.titles, function(key, value) {
