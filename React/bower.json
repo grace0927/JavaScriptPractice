@@ -1,10 +1,10 @@
 {
-  "name": "jQueryPlugin",
+  "name": "React",
   "homepage": "https://github.com/grace0927/JavaScriptPractice",
   "authors": [
     "grace0927 <cellphone2008@gmail.com>"
   ],
-  "description": "jQuery plugins",
+  "description": "",
   "main": "",
   "license": "MIT",
   "private": true,
@@ -16,6 +16,10 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1"
+    "react": "^15.4.2",
+    "jquery": "^3.1.1",
+    "remarkable": "^1.7.1",
+    "bootstrap": "^3.3.7",
+    "babel": "^5.8.38"
   }
 }

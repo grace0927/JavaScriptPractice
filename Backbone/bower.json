@@ -1,10 +1,10 @@
 {
-  "name": "jQueryPlugin",
+  "name": "Backbone",
   "homepage": "https://github.com/grace0927/JavaScriptPractice",
   "authors": [
     "grace0927 <cellphone2008@gmail.com>"
   ],
-  "description": "jQuery plugins",
+  "description": "",
   "main": "",
   "license": "MIT",
   "private": true,
@@ -16,6 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "jquery": "^3.1.1"
+    "backbone": "^1.3.3"
   }
 }
