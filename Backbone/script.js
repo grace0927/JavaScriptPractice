@@ -1,5 +1,4 @@
 // backbone model
-
 var Todo = Backbone.Model.extend({
 	defaults: {
 		author: '',
@@ -9,17 +8,14 @@ var Todo = Backbone.Model.extend({
 });
 
 // backbone collection
-
 var Todos = Backbone.Collection.extend({
 	url: 'todos.php'
 });
 
 // initial a collection
-
 var todos = new Todos();
 
 // backbone view for one todo
-
 var TodoView = Backbone.View.extend({
 	model: new Todo(),
 	tagName: 'tr',
@@ -72,7 +68,6 @@ var TodoView = Backbone.View.extend({
 });
 
 // backbone view for all todos
-
 var TodosView = Backbone.View.extend({
 	model: todos,
 	el: $('.todo-list'),
