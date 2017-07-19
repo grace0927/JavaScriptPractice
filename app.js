@@ -7,15 +7,7 @@ const routes = require('./node_js/routes');
 const app = express();
 
 app.use( cors() );
-
-// server asset
-app.use( '/assets', (req, res) => {
-    fs.readFile( 'assets'+req.url, (err, data) => {
-        res.write(data);
-        res.end();
-    } );
-} );
-
+app.use( '/assets', routes.assets );
 app.use( '/showcase', routes.showcase );
 
 app.listen( 8080, () => {} );
