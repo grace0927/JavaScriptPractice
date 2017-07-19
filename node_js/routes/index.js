@@ -1,4 +1,5 @@
-const showcase = require('./showcase');
 const assets = require('./assets');
+const showcase = require('./showcase');
+const todo = require('./todo');
 
-module.exports = { showcase, assets };
+module.exports = { assets, showcase, todo };

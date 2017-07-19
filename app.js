@@ -9,6 +9,7 @@ const app = express();
 app.use( cors() );
 app.use( '/assets', routes.assets );
 app.use( '/showcase', routes.showcase );
+app.use( '/todo', routes.todo );
 
 app.listen( 8080, () => {} );
 

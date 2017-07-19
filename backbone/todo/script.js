@@ -9,7 +9,7 @@ var Todo = Backbone.Model.extend({
 
 // backbone collection
 var Todos = Backbone.Collection.extend({
-	url: 'todos.php'
+	url: 'todo/api'
 });
 
 // initial a collection
