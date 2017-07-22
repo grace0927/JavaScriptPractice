@@ -17,6 +17,12 @@ app.use(function (req, res, next) {
     res.status(404).send("Sorry can't find that!")
 })
 
+// error handler
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+
 app.listen( 8080, () => {} );
 
 module.exports = app;
