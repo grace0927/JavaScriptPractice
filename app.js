@@ -11,6 +11,6 @@ app.use( '/assets', routes.assets );
 app.use( '/showcase', routes.showcase );
 app.use( '/todo', routes.todo );
 
-app.listen( 8080, () => {} );
+app.listen( 80, () => {} );
 
 module.exports = app;
