@@ -7,6 +7,7 @@ const routes = require('./node_js/routes');
 const app = express();
 
 app.use( cors() );
+app.use( '/', routes.showcase );
 app.use( '/assets', routes.assets );
 app.use( '/showcase', routes.showcase );
 app.use( '/todo', routes.todo );
