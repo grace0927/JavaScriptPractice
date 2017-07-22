@@ -1,11 +1,15 @@
 # Set the base image
-FROM nginx
+FROM node
 
 # File Author / Maintainer
 MAINTAINER Jianyu Feng
 
-# copy file to serve
-COPY . /usr/share/nginx/html
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+COPY . /usr/src/app
+
+RUN npm install
 
 # Expose ports
-EXPOSE 80
+EXPOSE 8080
+CMD [ "npm", "start" ]
