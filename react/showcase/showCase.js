@@ -1,15 +1,18 @@
-var ShowCases = React.createClass({
-    loadCases: function() {
-        $.ajax( {
-            url: this.props.url,
-            dataType: 'json',
-            cache: false,
-            success: function(data) {
-                this.setState({data: data});
-            }.bind(this),
-            error: function(xhr, status, err) {}.bind(this)
-        } );
-    },
+import React from 'react';
+import $ from 'jquery';
+
+const ShowCases = React.createClass({
+  loadCases() {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      cache: false,
+      success: (data) => {
+        this.setState({ data });
+      },
+      error: (xhr, status, err) => {}
+    });
+  },
 
     getInitialState: function() {
         return {data: []};
