@@ -1,8 +1,8 @@
-var http = require( "http" );
+const http = require('http');
 
-http.createServer( function( request, response ) {
-	response.writeHead( 200, { "Content-Type": "text/plain" } );
-	response.end( "Hello World\n" );
-} ).listen( 8080 );
+http.createServer((request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/plain' });
+  response.end('Hello World\n');
+}).listen(8080);
 
-console.log( "hello world" );
+console.info('server started');
