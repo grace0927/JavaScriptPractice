@@ -1,47 +1,33 @@
 import React from 'react';
-import ShowCaseSearch from 'showCaseSearch';
 import $ from 'jquery';
+import ShowCaseSearch from './ShowCaseSearch';
+import ShowCaseList from './ShowCaseList';
 
-/**
- * a list of show case component
- */
 class ShowCases extends React.Component {
-  /**
-   * gets initial state
-   * @returns {array} default empty data
-   */
-  getInitialState() {
-    return { data: [] };
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [],
+    };
   }
 
-  /**
-   * loads component data
-   * @returns {null} nothing
-   */
   componentDidMount() {
     this.loadCases();
   }
 
-  /**
-   * use ajax load component data
-   * @returns {null} nothing
-   */
   loadCases() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       cache: false,
-      success: (data) => {
-        this.setState({ data });
-      },
-      error: (xhr, status, err) => {}
+      success: function(data) {
+          this.setState({data: data});
+      }.bind(this),
+      error: function(xhr, status, err) {
+      }.bind(this)
     });
   }
 
-  /**
-   * use ajax load component data
-   * @returns {string} html string
-   */
   render() {
     return (
       <div>
@@ -58,3 +44,5 @@ class ShowCases extends React.Component {
     );
   }
 }
+
+export default ShowCases;
