@@ -1,27 +1,31 @@
-const fs = require( 'fs' );
+const fs = require('fs');
 const router = require('express').Router();
 
-router.get( '/', (req, res) => {
-    fs.readFile( 'backbone/todo/todo.html', (err, data) => {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write( data );
-        res.end();
-    } );
-} );
+router.get('/', (req, res) => {
+  fs.readFile('backbone/todo/todo.html', (err, data) => {
+    res.writeHead(200, {
+      'Content-Type': 'text/html',
+    });
+    res.write(data);
+    res.end();
+  });
+});
 
-router.get( '/script.js', (req, res) => {
-    fs.readFile( 'backbone/todo/script.js', (err, data) => {
-        res.write( data );
-        res.end();
-    } );
-} );
+router.get('/script.js', (req, res) => {
+  fs.readFile('backbone/todo/script.js', (err, data) => {
+    res.write(data);
+    res.end();
+  });
+});
 
-router.get( '/api', (req, res) => {
-    fs.readFile( 'backbone/todo/todo.json', (err, data) => {
-        res.writeHead(200, {'Content-Type': 'application/json'});
-        res.write( data );
-        res.end();
-    } );
-} );
+router.get('/api', (req, res) => {
+  fs.readFile('backbone/todo/todo.json', (err, data) => {
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
+    });
+    res.write(data);
+    res.end();
+  });
+});
 
 module.exports = router;
