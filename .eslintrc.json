@@ -28,6 +28,9 @@
     }],
     "no-console": ["error", {
       "allow": ["error", "info", "warn"]
+    }],
+    "react/jsx-filename-extension": [1, {
+      "extensions": [".js", ".jsx"]
     }]
   }
 }
