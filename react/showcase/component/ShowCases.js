@@ -1,9 +1,16 @@
-import React from 'react';
 import $ from 'jquery';
+import React from 'react';
 import ShowCaseSearch from './ShowCaseSearch';
 import ShowCaseList from './ShowCaseList';
 
+/**
+ * showcases component
+ */
 class ShowCases extends React.Component {
+  /**
+   * constructor
+   * @param {object} props props
+   */
   constructor(props) {
     super(props);
     this.state = {
@@ -11,23 +18,36 @@ class ShowCases extends React.Component {
     };
   }
 
+  /**
+   * load showcases after mount
+   * @returns {void}
+   */
   componentDidMount() {
     this.loadCases();
   }
 
+  /**
+   * fire AJAX request to retrieve showcases and set state thereafter
+   * @returns {void}
+   */
   loadCases() {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
       cache: false,
-      success: function(data) {
-          this.setState({data: data});
-      }.bind(this),
-      error: function(xhr, status, err) {
-      }.bind(this)
+      success: (data) => {
+        this.setState({ data });
+      },
+      error: (xhr, status, err) => {
+        console.error(err);
+      },
     });
   }
 
+  /**
+   * render showcase component
+   * @return {XML} showcases DOM
+   */
   render() {
     return (
       <div>
@@ -44,5 +64,13 @@ class ShowCases extends React.Component {
     );
   }
 }
+
+ShowCases.propTypes = {
+  url: React.PropTypes.string,
+};
+
+ShowCases.defaultProps = {
+  url: '',
+};
 
 export default ShowCases;
