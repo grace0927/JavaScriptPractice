@@ -2,9 +2,13 @@ import React from 'react';
 
 /**
  * a list of show case component
- * @returns {null} nothing
+ * @returns {void}
  */
 class ShowCaseSearch extends React.Component {
+  /**
+   * render showcase search component
+   * @return {XML} showcase search DOM
+   */
   render() {
     return (
       <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

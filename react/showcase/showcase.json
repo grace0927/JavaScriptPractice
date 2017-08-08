@@ -1,5 +1,5 @@
 [
-    {"id":0, "name":"Wedding Web", "img":"#", "link":"/wedding", "desc":"use bootstrap and static html page. use google form widget", "class":"red"},
-    {"id":1, "name":"Blog I", "img":"#", "link":"fengs/app", "desc":"use AngularJS", "class":"green"},
-    {"id":2, "name":"Todo App", "img":"#", "link":"/todo", "desc":"use BackboneJS, JQuery", "class": "silver"}
+    {"id":0, "name":"Wedding Web", "img":"#", "link":"/wedding", "description":"use bootstrap and static html page. use google form widget", "class":"red"},
+    {"id":1, "name":"Blog I", "img":"#", "link":"fengs/app", "description":"use AngularJS", "class":"green"},
+    {"id":2, "name":"Todo App", "img":"#", "link":"/todo", "description":"use BackboneJS, JQuery", "class": "silver"}
 ]
