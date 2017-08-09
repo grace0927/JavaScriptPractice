@@ -11,13 +11,6 @@ router.get('/', (req, res) => {
   });
 });
 
-router.get('/script.js', (req, res) => {
-  fs.readFile('backbone/todo/script.js', (err, data) => {
-    res.write(data);
-    res.end();
-  });
-});
-
 router.get('/api', (req, res) => {
   fs.readFile('backbone/todo/todo.json', (err, data) => {
     res.writeHead(200, {
