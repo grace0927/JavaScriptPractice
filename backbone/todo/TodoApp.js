@@ -1,11 +1,15 @@
 import $ from 'jquery';
 import Todo from './TodoModel';
 import TodoCollection from './TodoCollection';
+import TodoCollectionView from './TodoCollectionView';
 
 // initial a collection
 const todos = new TodoCollection();
+const todosView = new TodoCollectionView();
 
 $(document).ready(() => {
+  todosView.initialize(todos);
+
   $('.add-todo').on('click', () => {
     const todo = new Todo({
       author: $('.author-input').val(),

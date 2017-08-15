@@ -1,16 +1,15 @@
 import $ from 'jquery';
 import { _, Backbone } from 'backbone';
-import TodoCollection from './TodoCollection';
 import TodoView from './TodoView';
 
 // backbone view for all todos
 const TodoCollectionView = Backbone.View.extend({
-  model: TodoCollection,
-
   el: $('.todo-list'),
 
-  initialize: () => {
+  initialize: (model) => {
     const self = this;
+
+    this.model = model;
 
     this.model.on('add', this.render, this);
 

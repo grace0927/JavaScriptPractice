@@ -17,7 +17,7 @@ router.get('/showCase.js', (req, res) => {
 });
 
 router.get('/api/', (req, res) => {
-  fs.readFile('react/showcase/showcase.json', (err, data) => {
+  fs.readFile('node_js/resource/showcase.json', (err, data) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.write(data);
     res.end();
