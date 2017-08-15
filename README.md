@@ -1,3 +1,7 @@
+use `npm install` to install required library
+use `npm run build` to generate required javascript by webpack
+use `npm start` to start web server
+
 Good Reference Resources:
 
 Styling Guide

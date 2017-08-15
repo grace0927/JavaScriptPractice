@@ -1,9 +1,12 @@
 const path = require('path');
 
 const config = {
-  entry: './react/showcase/showCase.js',
+  entry: {
+    showcase: './react/showcase/showCase.js',
+    todo: './backbone/todo/TodoApp.js',
+  },
   output: {
-    filename: 'showcase.js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'assets/js'),
   },
   module: {
