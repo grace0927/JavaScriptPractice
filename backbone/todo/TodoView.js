@@ -1,58 +1,54 @@
 import $ from 'jquery';
-import { _, Backbone } from 'backbone';
-import TodoModel from './TodoModel';
-import TodoCollectionView from './TodoCollectionView';
+import * as _ from 'underscore';
+import Backbone from 'backbone';
 
 // backbone view for one todo
 const TodoModelView = Backbone.View.extend({
-  model: new TodoModel(),
-
-  tagName: 'tr',
-
-  initialize: () => {
-    this.template = _.template($('.todo-list-template').html());
-    this.todoCollectionView = new TodoCollectionView();
-  },
-
-  events: {
-    'click .edit-todo': 'edit',
-    'click .delete-todo': 'delete',
-    'click .update-todo': 'update',
-    'click .cancel': 'cancel',
+  initialize: (data) => {
+    self.template = _.template($('.todo-list-template').html());
+    self.todoCollectionView = data.todoCollectionView;
+    self.model = data.model;
+    self.$el = $('<tr></tr>');
+    self.events = {
+      'click .edit-todo': 'edit',
+      'click .delete-todo': 'delete',
+      'click .update-todo': 'update',
+      'click .cancel': 'cancel',
+    };
   },
 
   edit: () => {
     $('.edit-todo').hide();
     $('.delete-todo').hide();
-    this.$('.update-todo').show();
-    this.$('.cancel').show();
+    self.$('.update-todo').show();
+    self.$('.cancel').show();
 
-    const author = this.$('.author').html();
-    const title = this.$('.title').html();
-    const due = this.$('.due').html();
+    const author = self.$('.author').html();
+    const title = self.$('.title').html();
+    const due = self.$('.due').html();
 
-    this.$('.author').html(`<input class="form-control update-author-input" value='${author}'/>`);
-    this.$('.title').html(`<input class="form-control update-title-input" value='${title}'/>`);
-    this.$('.due').html(`<input class="form-control update-due-input" value='${due}'/>`);
+    self.$('.author').html(`<input class="form-control update-author-input" value='${author}'/>`);
+    self.$('.title').html(`<input class="form-control update-title-input" value='${title}'/>`);
+    self.$('.due').html(`<input class="form-control update-due-input" value='${due}'/>`);
   },
 
-  update: function update() {
-    this.model.set('author', this.$('.update-author-input').val());
-    this.model.set('title', this.$('.update-title-input').val());
-    this.model.set('due', this.$('.update-due-input').val());
+  update: () => {
+    self.model.set('author', self.$('.update-author-input').val());
+    self.model.set('title', self.$('.update-title-input').val());
+    self.model.set('due', self.$('.update-due-input').val());
 
-    this.model.save(null, {
+    self.model.save(null, {
       success: () => {},
       error: () => {},
     });
   },
 
   cancel: () => {
-    this.todoCollectionView.render();
+    self.todoCollectionView.render();
   },
 
   delete: () => {
-    this.model.destroy({
+    self.model.destroy({
       success: (res) => {
         console.info(res);
       },
@@ -61,8 +57,11 @@ const TodoModelView = Backbone.View.extend({
   },
 
   render: () => {
-    this.$el.html(this.template(this.model.toJSON()));
-    return this;
+    const todo = self.model.toJSON();
+    const view = self.template(todo);
+    self.$el.html(view);
+
+    return self;
   },
 });
 
