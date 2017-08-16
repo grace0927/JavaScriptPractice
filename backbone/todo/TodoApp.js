@@ -1,17 +1,17 @@
 import $ from 'jquery';
-import Todo from './TodoModel';
+import TodoModel from './TodoModel';
 import TodoCollection from './TodoCollection';
 import TodoCollectionView from './TodoCollectionView';
 
 // initial a collection
 const todos = new TodoCollection();
-const todosView = new TodoCollectionView();
+let todosView = new TodoCollectionView(todos);
 
 $(document).ready(() => {
-  todosView.initialize(todos);
+  todosView.render();
 
   $('.add-todo').on('click', () => {
-    const todo = new Todo({
+    const todo = new TodoModel({
       author: $('.author-input').val(),
       title: $('.title-input').val(),
       due: $('.due-input').val(),
@@ -20,11 +20,13 @@ $(document).ready(() => {
     todos.add(todo);
 
     todo.save(null, {
-      success: (response) => {
-        console.info(response);
-      },
+      success: () => {},
       error: () => {},
     });
+
+    todosView = new TodoCollectionView(todos);
+
+    todosView.render();
 
     $('.author-input').val('');
     $('.title-input').val('');

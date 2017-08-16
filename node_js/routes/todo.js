@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/api', (req, res) => {
-  fs.readFile('backbone/todo/todo.json', (err, data) => {
+  fs.readFile('node_js/resource/todo.json', 'utf-8', (err, data) => {
     res.writeHead(200, {
       'Content-Type': 'application/json',
     });

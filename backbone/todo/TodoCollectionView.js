@@ -1,44 +1,41 @@
 import $ from 'jquery';
-import { _, Backbone } from 'backbone';
+import * as _ from 'underscore';
+import Backbone from 'backbone';
 import TodoView from './TodoView';
 
 // backbone view for all todos
 const TodoCollectionView = Backbone.View.extend({
-  el: $('.todo-list'),
-
   initialize: (model) => {
-    const self = this;
+    self.model = model;
 
-    this.model = model;
-
-    this.model.on('add', this.render, this);
-
-    this.model.on('change', () => {
+    // attach listener
+    self.model.on('add', self.render, self);
+    self.model.on('change', () => {
       setTimeout(() => {
         self.render();
       }, 30);
-    }, this);
-
-    this.model.on('remove', this.render, this);
-
-    this.model.fetch({
-      success: (response) => {
-        console.info(response);
-      },
+    }, self);
+    self.model.on('remove', self.render, self);
+    self.model.fetch({
+      success: () => {},
       error: () => {},
     });
+
+    self.$el = $('.todo-list');
   },
 
   render: () => {
-    const self = this;
+    const collectionView = self.$el;
+    collectionView.html('');
 
-    this.$el.html('');
-
-    _.each(this.model.toArray(), (todo) => {
-      self.$el.append((new TodoView({ model: todo })).render().$el);
+    _.each(self.model.toArray(), (todo) => {
+      collectionView.append((new TodoView({
+        model: todo,
+        todoCollectionView: collectionView,
+      })).render().$el);
     });
 
-    return this;
+    return self;
   },
 });
 
