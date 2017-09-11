@@ -10,3 +10,7 @@ http://www.acuriousanimal.com/2016/08/14/configuring-atom-with-eslint.html
 
 Debug
 https://github.com/AtomLinter/linter-eslint/issues/259
+
+Backbone and ES6
+https://benmccormick.org/2015/04/07/es6-classes-and-backbone-js/
+https://benmccormick.org/2015/07/06/backbone-and-es6-classes-revisited/
