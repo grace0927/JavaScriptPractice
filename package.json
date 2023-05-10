@@ -20,17 +20,17 @@
     "cors": "^2.8.3",
     "express": "^4.15.3",
     "jquery": "^3.2.1",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "babel-loader": "^7.1.1",
-    "eslint": "^4.3.0",
-    "eslint-config-airbnb": "^15.1.0",
+    "babel-loader": "^9.1.2",
+    "eslint": "^8.40.0",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.1.0",
-    "webpack": "^3.4.1"
+    "webpack": "^5.82.0"
   }
 }
